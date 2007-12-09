@@ -1,0 +1,137 @@
+#Setting up SpinForth
+
+Over the summer I was using a propeller proto board. Spin is great but did not allow the kind of interactive development 
+I like to do on microcontrollers. In the distant past I had written Forth a few times ( the last time for the first Palm
+Pilot) and I decided that I wanted a forth for the propellor.
+
+I also decided it was necessary to be able to compile and run spin code as well as forth.
+
+Hence SpinForth came to life. I wrote it form scratch over a couple of months, and started using it. I haven't doen any
+work on it over the last 3 month, but it is stable and useful, and can rebuild itself.
+
+So here it is, rev 1.0 and for lack of any plan, It is under GPL (except forth the file FullDuplexSerialForth.spin - 
+this one is a modification of a file published on the Parallax site, and I haven't cleared it). If anyone wants 
+something else, let's talk offline.
+
+All this has only been tested with the propellor protoboard, and teraterm pro v4.51 http://sourceforge.jp/projects/ttssh2/
+as a terminal program.
+
+I run teraterm at 115.2 kb with 8 bits, no parity, 1 stop bit, no flow control, 1ms delay per line. Tested with prop clip,
+and RS232 port on Toshiba laptop.
+
+
+Getting started:
+
+There are 2 spin files in the package:
+FullDuplexSerialForth.spin
+NewForth.spin
+
+Put them in a directory, and open NewForth.spin with the propeller tool.
+NewForth.Spin is the source code for forth. 
+
+In the main routine you will find a line:
+  if Console.start(31, 30, 0, 115200)
+This is the serial initialization, if you want to run the serial port differently, change this.
+Pasting text into the terminal window, which I do a lot, can overrun the serial driver. 115.2kb did not
+have any issues. Slower should be OK.
+
+Compile and program the eeprom the propeller.
+
+Now fire up teraterm, make sure you have the options set and the correct port selected, and hit enter.
+
+You should see:
+Cog2 ok
+
+CTRL-A selects the next cog (cog 0 runs the spin code, cog 1 the serial driver, cog 2-7 forth).
+CTRL-B reboots the propeller
+CTRL-C resets the current cog, and switches to the next cog ( an initialization artifact)
+
+
+This forth is mostly ansi standard, my way of not having to write documentation.
+There is documentation for the forth words in:
+NewForthPart1.f
+NewForthPart2.f
+NewForthPart3.f
+
+Next step if to clear the upper part of the eeprom, and load some forth tools.
+
+Decompiler - a set of forth words which decompile a forth word
+CogAsm - a cog assembler - integrated with forth
+SpinMaker - tools to make a new NewForth.spin and compile a new version
+
+If you don't want to do any of these things, don't bother and go play with forth.
+
+type in:
+f_clear<enter>
+
+This clears out the upper 32k of eeprom and allows us to load some forth tools into this area.
+
+
+Using your favorite editor open CogAsm.f copy all the contents to the clipboard, and paste into teraterm
+Repeat for Decompiler.f and SpinMaker.f
+
+The forth word list, will list the files loaded in the eeprom.
+
+load decompiler<enter>
+
+decompile decompile<enter>
+
+
+You get the idea. Look in the *.f files for whatever documentation that is available. The NewForth.f file also contains
+documentation, and the low level assembler code for the base forth words.
+
+
+
+Creating a new forth:
+
+Create a New forth image involves:
+defining whatever forth words you want to change/add/delete
+generating the spin code
+copy the new spin code into the NewForth.spin file
+compile and load the base image
+
+The forth source is in the NewForthPart1.f, NewForthPart2.f and NewForthPart3.f files.
+
+If you want to add or change a word:
+
+reboot
+define the word(s) you want to add or change
+Load spinmaker
+spinmaker
+
+This will spew forth the spin code which replaces all the code after the 3 lines of *** in the NewForth.spin file.
+
+If you compile the file and there are less than 40 or so longs free, delete some of the long definitions at the end of the 
+file, until there are 40 longs free. Strange bug and the spin monitor will not work properly if there is insufficient free
+space.
+
+If you want to delete a word(s), just before the spinmaker word is executed redefine the word(s) you want deleted.
+
+IE if you want to delete the word free redefine it. 
+: free ;
+execute spinmaker, and the spin code generated will not contain the word free.
+
+
+
+
+
+Using the assembler:
+
+When you define a forth assembler word, it is only defined for thr current cog. SO it is a good practice to 
+
+
+
+externally visible label a_
+local lables __1 - __7
+
+
+
+
+
+
+
+
+
+
+
+
