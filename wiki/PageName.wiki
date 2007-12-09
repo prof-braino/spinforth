@@ -1,4 +1,4 @@
-=Setting up SpinForth=
+= Setting up SpinForth =
 
 Over the summer I was using a propeller proto board. Spin is great but did not allow the kind of interactive development 
 I like to do on microcontrollers. In the distant past I had written Forth a few times ( the last time for the first Palm
@@ -123,8 +123,6 @@ When you define a forth assembler word, it is only defined for thr current cog. 
 
 externally visible label a_
 local lables __1 - __7
-
-
 
 
 
