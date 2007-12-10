@@ -1,5 +1,1 @@
-= DEAD PAGE =
-
-This page should be deleted.
-
-
+PageName - this page should be deleted.
