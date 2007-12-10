@@ -8,8 +8,8 @@ I run teraterm at 115.2 kb with 8 bits, no parity, 1 stop bit, no flow control, 
 Getting started:
 
 There are 2 spin files in the package:
-  * FullDuplexSerialForth.spin
-  * NewForth.spin
+  * !FullDuplexSerialForth.spin
+  * !NewForth.spin
 
 Put them in a directory, and open !NewForth.spin with the propeller tool.
 !NewForth.Spin is the source code for forth. 
@@ -25,41 +25,45 @@ Compile and program the eeprom the propeller.
 Now fire up teraterm, make sure you have the options set and the correct port selected, and hit enter.
 
 You should see:
+{{{
 Cog2 ok
+}}}
 
-CTRL-A selects the next cog (cog 0 runs the spin code, cog 1 the serial driver, cog 2-7 forth).
-CTRL-B reboots the propeller
-CTRL-C resets the current cog, and switches to the next cog ( an initialization artifact)
+  * CTRL-A selects the next cog (cog 0 runs the spin code, cog 1 the serial driver, cog 2-7 forth).
+  * CTRL-B reboots the propeller
+  * CTRL-C resets the current cog, and switches to the next cog ( an initialization artifact)
 
 
 This forth is mostly ansi standard, my way of not having to write documentation.
 There is documentation for the forth words in:
-NewForthPart1.f
-NewForthPart2.f
-NewForthPart3.f
+  * !NewForthPart1.f
+  * !NewForthPart2.f
+  * !NewForthPart3.f
 
 Next step if to clear the upper part of the eeprom, and load some forth tools.
 
-Decompiler - a set of forth words which decompile a forth word
-CogAsm - a cog assembler - integrated with forth
-SpinMaker - tools to make a new NewForth.spin and compile a new version
+  * Decompiler - a set of forth words which decompile a forth word
+  * !CogAsm - a cog assembler - integrated with forth
+  * !SpinMaker - tools to make a new !NewForth.spin and compile a new version
 
 If you don't want to do any of these things, don't bother and go play with forth.
 
 type in:
+{{{
 f_clear<enter>
+}}}
 
 This clears out the upper 32k of eeprom and allows us to load some forth tools into this area.
 
 
-Using your favorite editor open CogAsm.f copy all the contents to the clipboard, and paste into teraterm
-Repeat for Decompiler.f and SpinMaker.f
+Using your favorite editor open !CogAsm.f copy all the contents to the clipboard, and paste into teraterm.
+Repeat for !Decompiler.f and !SpinMaker.f
 
 The forth word list, will list the files loaded in the eeprom.
-
+{{{
 load decompiler<enter>
 
 decompile decompile<enter>
+}}}
 
-
-You get the idea. Look in the .f files for whatever documentation that is available. The NewForth.f file also contains documentation, and the low level assembler code for the base forth words.
+You get the idea. Look in the .f files for whatever documentation that is available. The !NewForth.f file also contains documentation, and the low level assembler code for the base forth words.
