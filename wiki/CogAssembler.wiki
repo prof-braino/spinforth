@@ -14,8 +14,8 @@ mov stTos , # 7
 
 }}}
 
-Anything starting with a_ is considered a label and is defined in the forth dictionary.
-__1 to __7 are considered local labels and only valid in he word definition.
+Anything starting with ' a_ ' is considered a label and is defined in the forth dictionary.
+' __1 to __7 ' are considered local labels and only valid in he word definition.
 
 Spaces are the delimiters.
 
