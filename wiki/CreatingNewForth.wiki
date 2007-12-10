@@ -1,28 +1,28 @@
-
 Create a New forth image involves:
-defining whatever forth words you want to change/add/delete
-generating the spin code
-copy the new spin code into the NewForth.spin file
-compile and load the base image
 
-The forth source is in the NewForthPart1.f, NewForthPart2.f and NewForthPart3.f files.
+  * defining whatever forth words you want to change/add/delete
+  * generating the spin code
+  * copy the new spin code into the !NewForth.spin file
+  * compile and load the base image
+
+The forth source is in the !NewForthPart1.f, !NewForthPart2.f and !NewForthPart3.f files.
 
 If you want to add or change a word:
 
-reboot
-define the word(s) you want to add or change
-Load spinmaker
-spinmaker
+  * reboot
+  * define the word(s) you want to add or change
+  * Load spinmaker
+  * spinmaker
 
-This will spew forth the spin code which replaces all the code after the 3 lines of *** in the NewForth.spin file.
+This will spew forth the spin code which replaces all the code after the 3 lines of stars in the !NewForth.spin file.
 
-If you compile the file and there are less than 40 or so longs free, delete some of the long definitions at the end of the 
-file, until there are 40 longs free. Strange bug and the spin monitor will not work properly if there is insufficient free
-space.
+If you compile the file and there are less than 40 or so longs free, delete some of the long definitions at the end of the file, until there are 40 longs free. Strange bug and the spin monitor will not work properly if there is insufficient free space.
 
 If you want to delete a word(s), just before the spinmaker word is executed redefine the word(s) you want deleted.
 
-IE if you want to delete the word free redefine it. 
+IE if you want to delete the word free redefine it.
+{{{ 
 : free ;
-execute spinmaker, and the spin code generated will not contain the word free.
 
+}}}
+execute spinmaker, and the spin code generated will not contain the word free.
