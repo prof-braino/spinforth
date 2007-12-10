@@ -1,0 +1,9 @@
+
+Using the assembler:
+
+When you define a forth assembler word, it is only defined for thr current cog. SO it is a good practice to 
+
+
+
+externally visible label a_
+local lables __1 - __7
