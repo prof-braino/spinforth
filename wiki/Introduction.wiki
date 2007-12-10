@@ -1,4 +1,3 @@
-
 This forth is very useful for interactive hardware and software development. It is optimized for as many free registers as possible in the cogs.
 
 The stacks are in the cogs, and there is stack checking.
@@ -20,3 +19,4 @@ I also decided it was necessary to be able to compile and run spin code as well 
 
 Hence SpinForth came to life. I wrote it form scratch over a couple of months, and started using it. I haven't done any work on it over the last 3 month, but it is stable and useful, and can rebuild itself.
 
+GettingStarted
