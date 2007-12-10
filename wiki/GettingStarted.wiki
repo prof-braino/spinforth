@@ -8,11 +8,11 @@ I run teraterm at 115.2 kb with 8 bits, no parity, 1 stop bit, no flow control, 
 Getting started:
 
 There are 2 spin files in the package:
-FullDuplexSerialForth.spin
-NewForth.spin
+  * FullDuplexSerialForth.spin
+  * NewForth.spin
 
-Put them in a directory, and open NewForth.spin with the propeller tool.
-NewForth.Spin is the source code for forth. 
+Put them in a directory, and open !NewForth.spin with the propeller tool.
+!NewForth.Spin is the source code for forth. 
 
 In the main routine you will find a line:
   if Console.start(31, 30, 0, 115200)
