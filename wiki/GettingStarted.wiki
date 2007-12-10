@@ -62,4 +62,4 @@ load decompiler<enter>
 decompile decompile<enter>
 
 
-You get the idea. Look in the *.f files for whatever documentation that is available. The NewForth.f file also contains documentation, and the low level assembler code for the base forth words.
+You get the idea. Look in the .f files for whatever documentation that is available. The NewForth.f file also contains documentation, and the low level assembler code for the base forth words.
