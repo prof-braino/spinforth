@@ -1,4 +1,4 @@
-= INCOMPLETE PAGE +
+= INCOMPLETE PAGE =
 
 Using the assembler:
 
