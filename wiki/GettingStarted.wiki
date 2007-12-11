@@ -57,7 +57,7 @@ This clears out the upper 32k of eeprom and allows us to load some forth tools i
 
 
 Using your favorite editor open !CogAsm.f copy all the contents to the clipboard, and paste into teraterm.
-Repeat for !Decompiler.f and !SpinMaker.f
+Repeat for Decompiler.f and !SpinMaker.f
 
 The forth word list, will list the files loaded in the eeprom.
 {{{
@@ -66,4 +66,4 @@ load decompiler<enter>
 decompile decompile<enter>
 }}}
 
-You get the idea. Look in the .f files for whatever documentation that is available. The !NewForth.f file also contains documentation, and the low level assembler code for the base forth words.
+You get the idea. Look in the .f files for whatever documentation that is available. The !NewForth.spin file also contains documentation, and the low level assembler code for the base forth words.
