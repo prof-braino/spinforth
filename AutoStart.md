@@ -1,0 +1,45 @@
+The simplest way to get a forth cog to auto start a program on reset is to write a file
+that is the cog number to eeprom. When the cog is reset it will load the file. The following will write a file for cog 3 which defines pin 0 to an output and makes it blink (assuming there is an led on pin 0). Not a really useful function, but you get the idea.
+
+
+Note: to write the file to eeprom, copy the code to the clipboard and paste into a terminal program. The fast\_load and f\_write words depend on keys coming in fast and buffer them to memory until there is a pause in the input.
+
+Now if you type really fast...
+
+
+```
+200 f_write
+
+
+
+
+
+
+
+
+
+
+
+
+
+...3
+
+
+\ ( pin -- )
+: blink 
+  dup pxo \ pin out
+    begin 
+      dup pxh \ pin hi 
+      100 delay_ms
+      dup pxl \ pin lo 
+      100 delay_ms
+    0 until drop ;
+
+: blink_start 
+  cogid 1+ connectcog \ give the console to the next cog
+  0 blink ;
+
+blink_start
+
+\ eof
+```

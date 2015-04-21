@@ -1,0 +1,22 @@
+This forth is very useful for interactive hardware and software development. It is optimized for as many free registers as possible in the cogs.
+
+The stacks are in the cogs, and there is stack checking.
+
+While SpinForth is fast enough for many tasks, it is not fast enough for all.
+
+So there is a built in assembler. The assembler has not been used for any large projects, but I have one over the next couple of months, so it will get shaken out.
+
+# Source #
+
+The downloads sections contains all the spin and forth source.
+
+
+# History #
+
+Over the summer I was using a propeller proto board. Spin is great but did not allow the kind of interactive development I like to do on microcontrollers. In the distant past I had written Forth a few times ( the last time for the first Palm Pilot) and I decided that I wanted a forth for the propeller.
+
+I also decided it was necessary to be able to compile and run spin code as well as forth.
+
+Hence SpinForth came to life. I wrote it form scratch over a couple of months, and started using it. I haven't done any work on it over the last 3 month, but it is stable and useful, and can rebuild itself.
+
+GettingStarted
